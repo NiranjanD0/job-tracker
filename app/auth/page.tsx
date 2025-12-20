@@ -15,7 +15,7 @@ const auth = () => {
         return (
             <div className='bg-[#e5e5e6] dark:bg-zinc-900'>
                 <nav className="absolute w-screen flex justify-center items-center h-20 md:mt-10 text-black dark:text-white">
-                    <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20" />
+                    <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20 dark:invert" />
                 </nav>
                 <main className="h-screen flex justify-center items-center text-black dark:text-white">
                     <div className="w-90 md:w-120 border border-black/20 rounded-xl flex flex-col justify-center items-center bg-white dark:bg-black py-10 gap-5">

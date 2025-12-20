@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body data-theme='light'>
+      <body data-theme='dark'>
         <SessionWrapper>{children}</SessionWrapper>
       </body>
     </html>

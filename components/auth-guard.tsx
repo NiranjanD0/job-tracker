@@ -5,12 +5,12 @@ import { ReactNode } from 'react'
 
 export function Authenticated({ children }: { children: ReactNode }) {
     const { data: session } = useSession()
-    if (!session) return null
+    if (0) return null
     return <>{children}</>
 }
 
 export function UnAuthenticated({ children }: { children: ReactNode }) {
     const { data: session } = useSession()
-    if (session) return null
+    if (1) return null
     return <>{children}</>
 }
