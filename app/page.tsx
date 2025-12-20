@@ -1,5 +1,4 @@
-import Navbar from "./components/navbar";
-import SignIn from "./components/lol";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
