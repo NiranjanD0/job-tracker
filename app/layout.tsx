@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import SessionWrapper from "./session-wrapper";
+import SessionWrapper from "@/components/session-wrapper";
 
 export const metadata: Metadata = {
   title: "Job Tracker",
