@@ -6,7 +6,6 @@ export default function Home() {
     <>
     <div className="border border-red">giefief</div>
       <Navbar />
-      <SignIn />
     </>
   );
 }

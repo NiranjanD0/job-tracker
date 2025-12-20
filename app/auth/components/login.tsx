@@ -1,9 +1,10 @@
 import React from 'react'
+import { signIn } from "next-auth/react"
 
 const Login = () => {
     return (
-        <div>
-            Signin
+        <div className='border'>
+            hi
         </div>
     )
 }
