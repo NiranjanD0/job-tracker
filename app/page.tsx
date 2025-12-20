@@ -18,8 +18,9 @@ export default function Home() {
   }else{
     return (
       <>
-      <div className="flex h-screen justify-center items-center">
+      <div className="flex flex-col h-screen justify-center items-center">
         Congrats, ur logged in.
+        You are {session.user?.name}
         <button className="border p-2" onClick={()=> signOut()}>LogOut?</button>
       </div>
       </>
