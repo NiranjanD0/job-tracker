@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react'
 
 const page = () => {
     const { data: session } = useSession()
-    if (!session) redirect('/')
+    if (!session) redirect('/auth')
     else return (
         <div>
             <Snowfall color="#82C8D9" />
