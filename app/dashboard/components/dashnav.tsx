@@ -9,20 +9,30 @@ import { signOut } from 'next-auth/react'
 const DashNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
-        <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15 transition-colors'>
-            <div className='flex justify-between items-center md:w-[60%] w-[90%]'>
+        <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15 transition-colors md:px-5 px-3'>
+            <div className='flex justify-between items-center w-screen'>
                 <div>
                     <Link href="/">
-                        <img src="/icons/logo.svg" alt="" className='dark:invert' />
+                        <img src="/icons/logo.svg" alt="" className='dark:invert transition-colors' />
                     </Link>
                 </div>
-                {/* Menu */}
-
-                <button className='md:hidden flex'
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <MenuSquareIcon className='invert dark:invert-0 transition-colors' />
-                </button>
+                <div className='hidden md:flex justify-center gap-3'>
+                    <ToggleMode />
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => signOut()}>
+                        <LogOutIcon className='dark:text-white text-black transition-colors'/>
+                    </motion.button>
+                    {/* ChangeSchemeMode */}
+                </div>
             </div>
+            {/* Menu */}
+
+            <button className='md:hidden flex'
+                onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <MenuSquareIcon className='invert dark:invert-0 transition-colors' />
+            </button>
             {/* MobileView */}
 
             <AnimatePresence>
