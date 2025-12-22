@@ -4,18 +4,18 @@ import { useState } from 'react'
 import { Authenticated, UnAuthenticated } from './auth-guard'
 import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
-import { LogInIcon, MenuSquareIcon } from 'lucide-react'
-import ToggleMode from './toggle-mode'
+import { LogInIcon, MenuSquareIcon, LayoutDashboardIcon } from 'lucide-react'
+import { ToggleMode } from './toggle-mode'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
         <>
-            <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15'>
+            <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15 transition-colors'>
                 <div className='flex justify-between items-center md:w-[60%] w-[90%]'>
                     <div>
                         <Link href="/">
-                            <img src="/icons/logo.svg" alt="" className='dark:invert' />
+                            <img src="/icons/logo.svg" alt="" className='dark:invert transition-colors' />
                         </Link>
                     </div>
                     <div className='hidden md:flex justify-center gap-3'>
@@ -23,7 +23,7 @@ const Navbar = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}>
-                                <Link href="/dashboard" className='text-sm font-semibold text-black dark:text-white bg-[#747488] dark:bg-zinc-700 px-4 py-1.5 rounded-4xl text-center'>
+                                <Link href="/dashboard" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-700 px-4 py-3 rounded-4xl text-center dark:border-white/40 border-black/40 transition-colors'>
                                     Dashboard
                                 </Link>
                             </motion.button>
@@ -32,21 +32,21 @@ const Navbar = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}>
-                                <Link href="/auth" className='text-sm text-black dark:text-white bg-[#747488] dark:bg-zinc-900 px-2 py-1.5 rounded-4xl w-40 text-center flex items-center justify-center gap-2'>
+                                <Link href="/auth" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-4xl w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2 transition-colors'>
                                     <LogInIcon />
-                                    LogIn / SignUp
+                                    Get Started
                                 </Link>
                             </motion.button>
                         </UnAuthenticated>
                         {/* ChangeSchemeMode */}
-                    <ToggleMode />
+                        <ToggleMode />
                     </div>
 
                     {/* Menu */}
 
-                    <button className='md:hidden flex border border-black'
+                    <button className='md:hidden flex'
                         onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <MenuSquareIcon className='invert dark:invert-0' />
+                        <MenuSquareIcon className='invert dark:invert-0 transition-colors' />
                     </button>
                 </div>
 
@@ -74,8 +74,12 @@ const Navbar = () => {
                                 className='fixed translate-x-42'
                             >
                                 <Authenticated>
-                                    <motion.button>
-                                        <Link href="/dashboard">HEHE</Link>
+                                    <motion.button
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Link href="/dashboard">
+                                            <LayoutDashboardIcon className='border dark:border-white/40 border-black/40 rounded-full p-3 h-12 w-13 dark:bg-black bg-white text-black dark:text-white transition-colors' />
+                                        </Link>
                                     </motion.button>
                                 </Authenticated>
                                 <UnAuthenticated>
@@ -83,7 +87,7 @@ const Navbar = () => {
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
                                         <Link href="/auth">
-                                            <LogInIcon className='border dark:border-white/40 rounded-full p-3 h-12 w-12 bg-black' />
+                                            <LogInIcon className='border dark:border-white/40 border-black/40 rounded-full p-3 h-12 w-13 dark:bg-black bg-white text-black dark:text-white transition-colors' />
                                         </Link>
                                     </motion.button>
                                 </UnAuthenticated>

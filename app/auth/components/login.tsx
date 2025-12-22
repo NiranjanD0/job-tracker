@@ -7,13 +7,13 @@ import { AnimatePresence, motion } from 'motion/react';
 const Login = () => {
     return (
         <form action="" className='flex flex-col mb-[-20]'>
-            <div className='bg-[#e5e5e6] dark:bg-zinc-900 flex border dark:border-white/20 rounded-md mb-5'>
+            <div className='bg-[#e5e5e6] dark:bg-zinc-900 flex border dark:border-white/20 rounded-md mb-5 transition-colors'>
                 <div className='flex justify-center items-center'>
                     <Mail className='w-6 h-6 m-2 ml-3' />
                 </div>
                 <input type="email" id='email' name='email' required placeholder='Email' className='h-12 w-full px-1 focus:outline-0' />
             </div>
-            <div className='bg-[#e5e5e6] dark:bg-zinc-900 flex border dark:border-white/20 rounded-md mb-5'>
+            <div className='bg-[#e5e5e6] dark:bg-zinc-900 flex border dark:border-white/20 rounded-md mb-5 transition-colors'>
                 <PasswordToggleField.Root>
                     <LockKeyhole className='w-7 h-8 my-2 mx-3' />
                     <PasswordToggleField.Input className='h-12 w-full px-1 focus:outline-0' placeholder='Password' />
@@ -31,7 +31,7 @@ const Login = () => {
             <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className='border dark:border-white/20 h-13 rounded-md bg-[#e5e5e6] dark:bg-zinc-900'
+                className='border dark:border-white/20 h-13 rounded-md bg-[#e5e5e6] dark:bg-zinc-900 transition-colors'
             >
                 Submit
             </motion.button>
