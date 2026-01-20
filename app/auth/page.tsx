@@ -20,7 +20,7 @@ const auth = () => {
             <>
                 <Snowfall color="#82C8D9" />
                 <div className='bg-[#e5e5e6] dark:bg-zinc-900 transition-colors'>
-                    <nav className="absolute w-screen flex justify-center items-center h-20 md:mt-10 text-black dark:text-white  transition-colors">
+                    <nav className="absolute w-screen flex justify-center items-center h-20 md:mt-1 text-black dark:text-white  transition-colors">
                         <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20 dark:invert z-10 pb-5 transition-colors" />
                     </nav>
                     <main className="h-screen flex justify-center items-center text-black dark:text-white transition-colors">

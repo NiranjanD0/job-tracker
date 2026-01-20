@@ -9,6 +9,18 @@ import { ToggleMode } from './toggle-mode'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const menuItems = [
+        { label: 'Home', ariaLabel: 'Go to home page', link: '#' },
+        { label: 'About', ariaLabel: 'Learn about us', link: '/' },
+        { label: 'Services', ariaLabel: 'View our services', link: '/services' },
+        { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+    ];
+
+    const socialItems = [
+        { label: 'Twitter', link: 'https://twitter.com' },
+        { label: 'GitHub', link: 'https://github.com' },
+        { label: 'LinkedIn', link: 'https://linkedin.com' }
+    ];
     return (
         <>
             <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15 transition-colors'>
