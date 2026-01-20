@@ -2,7 +2,6 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
 import DashNav from './components/dashnav'
-import Snowfall from 'react-snowfall'
 import { useSession } from 'next-auth/react'
 
 const page = () => {
