@@ -10,7 +10,6 @@ import { Github, LogIn, UserPlus, ArrowLeftCircle } from 'lucide-react'
 import Login from './components/login'
 import Signup from './components/signup'
 import {ToggleMode, ToggleModeSm} from '@/components/toggle-mode';
-import Snowfall from 'react-snowfall'
 import { AnimatePresence, motion } from 'motion/react'
 
 const auth = () => {
@@ -18,7 +17,6 @@ const auth = () => {
     if (!session) {
         return (
             <>
-                <Snowfall color="#82C8D9" />
                 <div className='bg-[#e5e5e6] dark:bg-zinc-900 transition-colors'>
                     <nav className="absolute w-screen flex justify-center items-center h-20 md:mt-1 text-black dark:text-white  transition-colors">
                         <img src="/icons/logo.svg" alt="Job Tracker" className="h-18 md:h-20 dark:invert z-10 pb-5 transition-colors" />
