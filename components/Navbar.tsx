@@ -1,11 +1,12 @@
 "use client"
 import React from 'react'
 import { useState } from 'react'
-import { Authenticated, UnAuthenticated } from './auth-guard'
+import { Authenticated, UnAuthenticated } from './AuthGuard'
 import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
 import { LogInIcon, MenuSquareIcon, LayoutDashboardIcon } from 'lucide-react'
 import { AnimatedThemeToggler } from './ui/animated-theme-toggler'
+import { RainbowButton } from './ui/rainbow-button'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,22 +32,20 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className='hidden md:flex justify-center gap-3'>
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}>
+                        <RainbowButton variant="outline">
                             <Authenticated>
-                                <Link href="/dashboard" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
+                                <Link href="/dashboard" className='text-sm font-semibold text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2 transition-colors duration-300'>
                                     <LogInIcon />
                                     Get Started
                                 </Link>
                             </Authenticated>
                             <UnAuthenticated>
-                                <Link href="/auth" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
+                                <Link href="/login" className='text-sm font-semibold dark:text-white text-black rounded-md w-40 text-center flex items-center justify-center gap-2 transition-colors duration-300'>
                                     <LogInIcon />
                                     Get Started
                                 </Link>
                             </UnAuthenticated>
-                        </motion.button>
+                        </RainbowButton>
                         {/* ChangeSchemeMode */}
                         <AnimatedThemeToggler className="text-black dark:text-white" />
                     </div>

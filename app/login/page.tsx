@@ -7,8 +7,8 @@ import { signOut, useSession, signIn } from "next-auth/react"
 import { redirect } from 'next/navigation'
 import * as Tabs from "@radix-ui/react-tabs"
 import { Github, LogIn, UserPlus, ArrowLeftCircle } from 'lucide-react'
-import Login from './components/login'
-import Signup from './components/signup'
+import Login from './components/Login'
+import Signup from './components/Signup'
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { AnimatePresence, motion } from 'motion/react'
 

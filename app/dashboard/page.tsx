@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { redirect } from 'next/navigation'
-import DashNav from './components/dashnav'
+import DashNav from './components/DashNav'
 import { useSession } from 'next-auth/react'
 
 const page = () => {
@@ -17,7 +17,7 @@ const page = () => {
             </div>
         )
     }
-    else if (status === "unauthenticated") redirect('/auth')
+    else if (status === "unauthenticated") redirect('/login')
     
     return (
         <div>

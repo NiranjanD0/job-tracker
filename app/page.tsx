@@ -1,6 +1,6 @@
 "use client"
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 

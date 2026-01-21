@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import SessionWrapper from "@/components/session-wrapper";
+import SessionWrapper from "@/components/SessionWrapper";
 import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
