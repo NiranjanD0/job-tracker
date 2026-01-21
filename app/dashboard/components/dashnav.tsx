@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { MenuSquareIcon, LogOutIcon } from 'lucide-react'
-import { ToggleMode, ToggleModeSm } from '@/components/toggle-mode'
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { signOut } from 'next-auth/react'
 
 const DashNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
-        <nav className='z-10 fixed bg-white dark:bg-black w-screen flex justify-center items-center h-15 transition-colors md:px-5 px-3'>
+        <nav className='z-10 fixed bg-white/50 dark:bg-black/50 backdrop-blur-md w-screen flex justify-center items-center h-15 transition-colors md:px-5 px-3'>
             <div className='flex justify-between items-center w-screen'>
                 <div>
                     <Link href="/">
@@ -17,12 +17,12 @@ const DashNav = () => {
                     </Link>
                 </div>
                 <div className='hidden md:flex justify-center gap-3'>
-                    <ToggleMode />
+                    <AnimatedThemeToggler className="text-black dark:text-white" />
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => signOut()}>
-                        <LogOutIcon className='dark:text-white text-black transition-colors'/>
+                        <LogOutIcon className='dark:text-white text-black transition-colors' />
                     </motion.button>
                     {/* ChangeSchemeMode */}
                 </div>
@@ -59,7 +59,7 @@ const DashNav = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}>
-                                <ToggleMode />
+                                <AnimatedThemeToggler className="text-black dark:text-white" />
                             </motion.button>
                             <motion.button
                                 whileHover={{ scale: 1.1 }}

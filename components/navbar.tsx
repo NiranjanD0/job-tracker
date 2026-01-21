@@ -35,13 +35,13 @@ const Navbar = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}>
                             <Authenticated>
-                                <Link href="/dashboard" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-4xl w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
+                                <Link href="/dashboard" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
                                     <LogInIcon />
                                     Get Started
                                 </Link>
                             </Authenticated>
                             <UnAuthenticated>
-                                <Link href="/auth" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-4xl w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
+                                <Link href="/auth" className='text-sm font-semibold text-black dark:text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2'>
                                     <LogInIcon />
                                     Get Started
                                 </Link>
