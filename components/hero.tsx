@@ -1,12 +1,19 @@
 import React from 'react'
+import FloatingLines from './ui/FloatingLines'
 
 const Hero = () => {
     return (
-        <>
-            <div className='flex h-screen w-screen justify-center items-center bg-[#e5e5e6] dark:bg-[#0a0a0a] transition-colors'>
-                test
-            </div>
-        </>
+        <div className='fixed max-h-screen w-full mx-auto flex justify-center items-center dark:bg-black bg-white overflow-hidden'>
+            <FloatingLines
+                enabledWaves={["top", "middle", "bottom"]}
+                lineCount={5}
+                lineDistance={5}
+                bendRadius={5}
+                bendStrength={-0.5}
+                interactive={true}
+                parallax={true}
+            />
+        </div>
     )
 }
 
