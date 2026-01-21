@@ -5,7 +5,7 @@ import { Authenticated, UnAuthenticated } from './auth-guard'
 import { AnimatePresence, motion } from 'motion/react'
 import Link from 'next/link'
 import { LogInIcon, MenuSquareIcon, LayoutDashboardIcon } from 'lucide-react'
-import { ToggleMode } from './toggle-mode'
+import { AnimatedThemeToggler } from './ui/animated-theme-toggler'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,7 +51,7 @@ const Navbar = () => {
                             </motion.button>
                         </UnAuthenticated>
                         {/* ChangeSchemeMode */}
-                        <ToggleMode />
+                        <AnimatedThemeToggler className="text-black dark:text-white" />
                     </div>
 
                     {/* Menu */}
@@ -125,7 +125,7 @@ const Navbar = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}>
-                                    <ToggleMode />
+                                    <AnimatedThemeToggler className="text-black dark:text-white" />
                                 </motion.button>
                             </motion.div>
                         </>
