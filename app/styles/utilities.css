@@ -1,0 +1,8 @@
+@theme inline {
+    --font-geist: "Geist", sans-serif;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("/fonts/Geist.ttf") format("truetype");
+}

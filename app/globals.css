@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./styles/loader.css";
+@import "./styles/utilities.css";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme inline {
@@ -66,7 +67,17 @@
   50% {
     background-position: 100% 100%;}
   to {
-    background-position: 0% 0%;}}}
+    background-position: 0% 0%;}}
+  --animate-meteor: meteor 5s linear infinite;
+  @keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;}
+  70% {
+    opacity: 1;}
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;}}}
 
 :root {
   --radius: 0.625rem;
@@ -177,4 +188,10 @@
   to {
     background-position: calc(50% + 1.6em) 0, calc(50% + 3.2em) .8em
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

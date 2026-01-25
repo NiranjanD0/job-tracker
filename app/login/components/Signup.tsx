@@ -1,14 +1,26 @@
 "use client"
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { Eye, EyeClosed, Mail, LockKeyhole, User } from 'lucide-react'
 import { motion } from 'motion/react'
 
 const Signup = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const isMismatch = confirmPassword.length > 0 && password !== confirmPassword
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (isMismatch) {
+            return
+        }
+        // TODO: Implement actual signup submission
+    }
 
     return (
-        <form className='flex flex-col gap-5'>
+        <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
                 {/* Full Name Input */}
                 <div className='relative group'>
                     <div className='absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none'>
@@ -50,6 +62,8 @@ const Signup = () => {
                         name='password' 
                         required 
                         placeholder='Password' 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className='w-full h-12 pl-12 pr-12 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'
                     />
                     <button
@@ -62,6 +76,7 @@ const Signup = () => {
                 </div>
 
                 {/* Confirm Password Input */}
+                <div>
                 <div className='relative group'>
                     <div className='absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none'>
                         <LockKeyhole className='w-5 h-5 text-gray-500 dark:text-gray-400' />
@@ -72,7 +87,10 @@ const Signup = () => {
                         name='confirmPassword' 
                         required 
                         placeholder='Confirm password' 
-                        className='w-full h-12 pl-12 pr-12 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        aria-invalid={isMismatch}
+                        className={'w-full h-12 pl-12 pr-12 bg-gray-100 dark:bg-zinc-950/40 border rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none transition-all duration-200 ' + (isMismatch ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500' : 'border-gray-300 dark:border-zinc-800 focus:ring-2 focus:ring-purple-500 focus:border-transparent')}
                     />
                     <button
                         type="button"
@@ -81,6 +99,10 @@ const Signup = () => {
                     >
                         {showConfirmPassword ? <EyeClosed className='w-5 h-5' /> : <Eye className='w-5 h-5' />}
                     </button>
+                </div>
+                <p className={'mt-1 text-xs text-red-600 ' + (isMismatch ? 'opacity-100' : 'opacity-0')}>
+                    Passwords do not match
+                </p>
                 </div>
 
                 {/* Terms and Conditions */}
@@ -93,13 +115,13 @@ const Signup = () => {
                     />
                     <label htmlFor="terms" className='text-sm text-gray-600 dark:text-gray-400'>
                         I agree to the{' '}
-                        <button type="button" className='text-purple-600 dark:text-purple-400 hover:underline'>
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className='text-purple-600 dark:text-purple-400 hover:underline'>
                             Terms of Service
-                        </button>
+                        </Link>
                         {' '}and{' '}
-                        <button type="button" className='text-purple-600 dark:text-purple-400 hover:underline'>
+                        <Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className='text-purple-600 dark:text-purple-400 hover:underline'>
                             Privacy Policy
-                        </button>
+                        </Link>
                     </label>
                 </div>
 
@@ -108,7 +130,8 @@ const Signup = () => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className='w-full h-12 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200'
+                    disabled={isMismatch}
+                    className={'w-full h-12 rounded-lg bg-linear-to-r from-blue-400 to-pink-300 dark:hover:from-pink-500 dark:hover:to-pink-400 dark:from-blue-400 dark:to-pink-300 hover:from-blue-500 hover:to-pink-400 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 ' + (isMismatch ? 'opacity-60 cursor-not-allowed' : '')}
                 >
                     Create Account
                 </motion.button>
