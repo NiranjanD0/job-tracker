@@ -131,7 +131,7 @@ const Signup = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={isMismatch}
-                    className={'w-full h-12 rounded-lg bg-linear-to-r from-blue-400 to-pink-300 dark:hover:from-pink-500 dark:hover:to-pink-400 dark:from-blue-400 dark:to-pink-300 hover:from-blue-500 hover:to-pink-400 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 ' + (isMismatch ? 'opacity-60 cursor-not-allowed' : '')}
+                    className={'w-full h-12 rounded-lg bg-linear-to-r bg-linear-to-r from-blue-400 to-pink-300 hover:from-blue-500 hover:to-pink-400 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200' + (isMismatch ? 'opacity-60 cursor-not-allowed' : '')}
                 >
                     Create Account
                 </motion.button>

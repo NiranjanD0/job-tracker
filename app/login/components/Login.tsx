@@ -84,7 +84,7 @@ const Login = () => {
                         name='email' 
                         required 
                         placeholder='Email address' 
-                        className='w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'
+                        className='w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
                     />
                 </div>
 
@@ -99,7 +99,7 @@ const Login = () => {
                         name='password' 
                         required 
                         placeholder='Password' 
-                        className='w-full h-12 pl-12 pr-12 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'
+                        className='w-full h-12 pl-12 pr-12 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
                     />
                     <button
                         type="button"
@@ -138,7 +138,7 @@ const Login = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.18 }}
-                    className='fixed inset-0 z-60 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4'
+                    className='fixed inset-0 z-60 flex items-center justify-center rounded-2xl bg-black/40 backdrop-blur-sm px-4'
                     onMouseDown={(e) => {
                         if (e.target === e.currentTarget) closeForgot()
                     }}
@@ -169,7 +169,7 @@ const Login = () => {
                                     if (e.key === 'Enter') submitForgotPassword()
                                 }}
                                 placeholder='Email address'
-                                className='w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'
+                                className='w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
                             />
                         </div>
 
@@ -193,7 +193,7 @@ const Login = () => {
                                 whileTap={{ scale: 0.98 }}
                                 onClick={submitForgotPassword}
                                 disabled={forgotStatus === 'loading'}
-                                className={'px-4 py-2 rounded-lg text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 transition-colors ' + (forgotStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : '')}
+                                className={'px-4 py-2 rounded-lg text-sm font-semibold text-white bg-linear-to-r from-blue-400 to-pink-300 hover:from-blue-500 hover:to-pink-400 transition-colors ' + (forgotStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : '')}
                             >
                                 {forgotStatus === 'loading' ? 'Sending…' : 'Send reset link'}
                             </motion.button>

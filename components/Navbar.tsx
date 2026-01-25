@@ -42,7 +42,7 @@ const Navbar = () => {
                 <div className='flex justify-between items-center md:w-[60%] w-[90%]'>
                     <div>
                         <Link href="/">
-                            <img src="/icons/logo.svg" alt="" className="h-12 dark:invert"/>
+                            <img src="/icons/logo.svg" alt="" className="h-12 dark:invert" />
                         </Link>
                     </div>
                     <div className='hidden md:flex justify-center gap-3'>
@@ -100,19 +100,19 @@ const Navbar = () => {
                             className='absolute top-full left-0 right-0 md:hidden bg-white/50 dark:bg-black/50 backdrop-blur-md border-t border-white/20 dark:border-white/10 w-screen flex flex-col justify-center items-center py-4 gap-3'
                         >
                             <RainbowButton variant="outline">
-                            <Authenticated>
-                                <Link href="/dashboard" className='text-sm font-semibold text-white bg-black/10 dark:bg-zinc-900 px-2 py-1.5 rounded-md w-40 text-center dark:border-white/40 border-black/40 flex items-center justify-center gap-2 transition-colors duration-300'>
-                                    <LogInIcon />
-                                    Get Started
-                                </Link>
-                            </Authenticated>
-                            <UnAuthenticated>
-                                <Link href="/login" className='text-sm font-semibold dark:text-white text-black rounded-md w-40 text-center flex items-center justify-center gap-2 transition-colors duration-300'>
-                                    <LogInIcon />
-                                    Get Started
-                                </Link>
-                            </UnAuthenticated>
-                        </RainbowButton>
+                                <Authenticated>
+                                    <Link href="/dashboard" className='text-sm font-semibold dark:text-white text-black rounded-md w-40 text-center flex items-center justify-center gap-2 transition-colors duration-300'>
+                                        <LogInIcon />
+                                        Get Started
+                                    </Link>
+                                </Authenticated>
+                                <UnAuthenticated>
+                                    <Link href="/login" className='text-sm font-semibold dark:text-white text-black rounded-md w-40 text-center flex items-center justify-center gap-2 transition-colors duration-300'>
+                                        <LogInIcon />
+                                        Get Started
+                                    </Link>
+                                </UnAuthenticated>
+                            </RainbowButton>
                             <div className='py-2'>
                                 <AnimatedThemeToggler className="text-black dark:text-white" />
                             </div>

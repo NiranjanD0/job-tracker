@@ -20,7 +20,7 @@ const Hero = () => {
                         by="character"
                         wrap="word"
                         once
-                        duration={1}
+                        duration={1.5}
                         as="h2"
                         className="bg-clip-text text-transparent text-center bg-linear-to-b from-blue-500 dark:from-blue-400 to-gray-400 dark:to-white text-5xl md:text-4xl lg:text-7xl font-geist py-2 md:py-7 relative z-20 font-bold tracking-tight">
                         {"Job hunting is chaotic.\nTracking it shouldn't be."}
@@ -29,9 +29,9 @@ const Hero = () => {
                         animation="blurInUp"
                         by="character"
                         once
-                        duration={1}
-                        delay={1}
-                        className="md:max-w-2xl max-w-[310] mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center"
+                        duration={1.5}
+                        delay={1.5}
+                        className="md:max-w-2xl max-w-[310] mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-300 text-center"
                     >
                         Keep every application, deadline, and update in one clean dashboard.
                     </TextAnimate>
