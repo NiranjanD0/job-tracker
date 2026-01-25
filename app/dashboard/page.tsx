@@ -4,8 +4,8 @@ import { redirect } from 'next/navigation'
 import DashNav from './components/DashNav'
 import { useSession } from 'next-auth/react'
 
-const page = () => {
-    const { data: session, status } = useSession()
+const Page = () => {
+    const { status } = useSession()
     
     if (status === "loading") {
         return (
@@ -17,7 +17,9 @@ const page = () => {
             </div>
         )
     }
-    else if (status === "unauthenticated") redirect('/login')
+    else if (status === "unauthenticated") {
+        redirect('/login')
+    }
     
     return (
         <div>
@@ -29,4 +31,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
