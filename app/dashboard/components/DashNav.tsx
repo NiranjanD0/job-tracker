@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { MenuSquareIcon, LogOutIcon, X } from 'lucide-react'
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 import { signOut } from 'next-auth/react'
+import AddJobDialog from './AddJobDialog'
 
 const DashNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -34,7 +35,8 @@ const DashNav = () => {
                         <img src="/icons/logo.svg" alt="" className="h-12 dark:invert" />
                     </Link>
                 </div>
-                <div className='hidden md:flex justify-center gap-3'>
+                <div className='hidden md:flex justify-center items-center gap-4'>
+                    <AddJobDialog />
                     <AnimatedThemeToggler className="text-black dark:text-white" />
                     <motion.button
                         whileHover={{ scale: 1.1 }}
@@ -81,7 +83,8 @@ const DashNav = () => {
                         }}
                         className='absolute top-full left-0 right-0 md:hidden bg-white/50 dark:bg-black/50 backdrop-blur-md border-t border-white/20 dark:border-white/10 w-screen flex flex-col justify-center items-center py-4 gap-3'
                     >
-                        <div className='py-2'>
+                        <div className='py-2 flex flex-col items-center gap-4'>
+                            <AddJobDialog />
                             <AnimatedThemeToggler className="text-black dark:text-white" />
                         </div>
                         <motion.button

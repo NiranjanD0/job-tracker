@@ -9,7 +9,7 @@ import { Github, ArrowLeft } from 'lucide-react'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import { ShineBorder } from '@/components/ui/shine-border'
 import { Meteors } from '@/components/ui/meteors'
 
@@ -122,28 +122,33 @@ const AuthPage = () => {
 
 
                                 {/* Tab Content */}
-                                <Tabs.Content value="login" className="mt-6">
-                                    <motion.div
-                                        key="tab-login"
-                                        initial={{ opacity: 0, y: 6 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -6 }}
-                                        transition={{ duration: 0.18 }}
-                                    >
-                                        <Login />
-                                    </motion.div>
-                                </Tabs.Content>
-                                <Tabs.Content value="signup" className="mt-6">
-                                    <motion.div
-                                        key="tab-signup"
-                                        initial={{ opacity: 0, y: 6 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -6 }}
-                                        transition={{ duration: 0.18 }}
-                                    >
-                                        <Signup />
-                                    </motion.div>
-                                </Tabs.Content>
+                                <div className="mt-6 relative">
+                                    <AnimatePresence mode="wait">
+                                        {activeTab === 'login' ? (
+                                            <motion.div
+                                                key="login"
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: 20 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="w-full"
+                                            >
+                                                <Login />
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div
+                                                key="signup"
+                                                initial={{ opacity: 0, x: 20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -20 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="w-full"
+                                            >
+                                                <Signup />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
                             </Tabs.Root>
 
                             {/* Divider */}

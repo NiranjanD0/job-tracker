@@ -1,34 +1,36 @@
-"use client"
 import React from 'react'
-import { redirect } from 'next/navigation'
 import DashNav from './components/DashNav'
-import { useSession } from 'next-auth/react'
+import DashboardMetrics from './components/DashboardMetrics'
+import Sidebar from './components/Sidebar'
+import JobBoard from './components/JobBoard'
+import { redirect } from 'next/navigation'
+import { auth } from '@/lib/auth'
+import { prisma } from '@/lib/prisma'
 
-const Page = () => {
-    const { status } = useSession()
-    
-    if (status === "loading") {
-        return (
-            <div className='h-screen w-screen flex justify-center items-center bg-[#e5e5e6] dark:bg-[#0a0a0a]'>
-                <div className='flex flex-col items-center gap-4'>
-                    <div className="loader text-white"></div>
-                    <p className='text-black dark:text-white'>Loading Dashboard...</p>
-                </div>
-            </div>
-        )
-    }
-    else if (status === "unauthenticated") {
+export default async function DashboardPage() {
+    const session = await auth()
+
+    if (!session?.user?.id) {
         redirect('/login')
     }
-    
+
+    const jobs = await prisma.job.findMany({
+        where: { userId: session.user.id },
+        orderBy: { updatedAt: 'desc' }
+    })
+
     return (
-        <div>
+        <div className="min-h-screen bg-[#f5f5f5] dark:bg-[#0a0a0a]">
             <DashNav />
-            <div className='h-screen w-screen text-black flex justify-center items-center bg-[#e5e5e6] dark:bg-[#0a0a0a] dark:text-white'>
-                This is dashboard
+            <div className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto flex flex-col xl:flex-row gap-8">
+                <main className="flex-1 w-full min-w-0">
+                    <DashboardMetrics jobs={jobs} />
+                    <JobBoard initialJobs={jobs} />
+                </main>
+                <div className="w-full xl:w-80 shrink-0">
+                    <Sidebar jobs={jobs} />
+                </div>
             </div>
         </div>
     )
 }
-
-export default Page
