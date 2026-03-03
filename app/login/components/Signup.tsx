@@ -42,8 +42,8 @@ const Signup = () => {
                 </div>
                 <input
                     type="text"
-                    id='fullname'
-                    name='fullname'
+                    id='name'
+                    name='name'
                     required
                     placeholder='Full name'
                     className='w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-zinc-950/40 border border-gray-300 dark:border-zinc-800 rounded-lg text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200'

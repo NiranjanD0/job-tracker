@@ -16,13 +16,13 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const { theme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return
 
-    const newTheme = theme === "dark" ? "light" : "dark"
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark"
 
     // Check if View Transition API is supported
     if (!document.startViewTransition) {
@@ -68,7 +68,7 @@ export const AnimatedThemeToggler = ({
       aria-label="Toggle theme"
       {...props}
     >
-      {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
       <span className="sr-only">Toggle theme</span>
     </button>
   )
