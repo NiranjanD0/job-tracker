@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="12" y="22" width="40" height="26" rx="8"
+        stroke="currentColor" stroke-width="3"/>
+
+  <path d="M24 22v-4c0-3 2-4 8-4s8 1 8 4v4"
+        stroke="currentColor" stroke-width="3"
+        stroke-linecap="round"/>
+
+  <!-- tracking progress -->
+  <path d="M20 36h10l6-6 8 8"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
