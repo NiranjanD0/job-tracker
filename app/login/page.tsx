@@ -82,7 +82,7 @@ const AuthPage = () => {
                                 </h1>
                                 <p className="text-sm text-gray-600 dark:text-gray-400">
                                     {activeTab === 'login'
-                                        ? 'Let’s get you back to tracking'
+                                        ? 'Let\'s get you back to tracking'
                                         : 'Start organizing your job search today'
                                     }
                                 </p>
@@ -168,7 +168,7 @@ const AuthPage = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    onClick={() => signIn("google")}
+                                    onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
                                     className="flex items-center justify-center gap-2 px-4 py-3 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
                                 >
                                     <img src="/icons/google.svg" alt="Google" className="h-5 w-5" />
@@ -177,7 +177,7 @@ const AuthPage = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    onClick={() => signIn("github")}
+                                    onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
                                     className="flex items-center justify-center gap-2 px-4 py-3 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
                                 >
                                     <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
